@@ -13,12 +13,16 @@ export default function App() {
   const [modalEliminar, setModalEliminar] = useState({ mostrar: false, id: null });
   const [modalCompraExito, setModalCompraExito] = useState({ mostrar: false, producto: null });
 
-  useEffect(() => {
-    fetch('http://localhost:3000/productos')
-      .then(res => res.json())
-      .then(data => setProductos(data));
+  // IP fija de la laptop para que funcione en PC y celulares conectados a la red compartida
+  const IP_SERVIDOR = '10.217.90.210';
 
-    fetch('http://localhost:3000/ventas')
+  useEffect(() => {
+    fetch(`http://${IP_SERVIDOR}:3000/productos`)
+      .then(res => res.json())
+      .then(data => setProductos(data))
+      .catch(err => console.error("Error cargando productos:", err));
+
+    fetch(`http://${IP_SERVIDOR}:3000/ventas`)
       .then(res => res.json())
       .then(data => setHistorial(data))
       .catch(err => console.error("Error cargando historial:", err));
@@ -29,7 +33,7 @@ export default function App() {
     if (!nombre || !precio || !stock) return alert("⚠️ Por favor, llena todos los campos");
     const nuevo = { nombre, precio: parseFloat(precio), stock: parseInt(stock) };
     try {
-      const res = await fetch('http://localhost:3000/productos', {
+      const res = await fetch(`http://${IP_SERVIDOR}:3000/productos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(nuevo)
@@ -47,7 +51,7 @@ export default function App() {
     }
     const nuevoStock = producto.stock - 1;
     try {
-      const res = await fetch(`http://localhost:3000/productos/${producto.id}`, {
+      const res = await fetch(`http://${IP_SERVIDOR}:3000/productos/${producto.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ stock: nuevoStock, nombre: producto.nombre, precio: producto.precio, esCompra: true })
@@ -55,7 +59,7 @@ export default function App() {
       if (res.ok) {
         setProductos(productos.map(p => p.id === producto.id ? { ...p, stock: nuevoStock } : p));
         setModalCompraExito({ mostrar: true, producto: producto });
-        const resVentas = await fetch('http://localhost:3000/ventas');
+        const resVentas = await fetch(`http://${IP_SERVIDOR}:3000/ventas`);
         const datosVentas = await resVentas.json();
         setHistorial(datosVentas);
       }
@@ -64,7 +68,7 @@ export default function App() {
 
   const ejecutarEliminado = async () => {
     try {
-      await fetch(`http://localhost:3000/productos/${modalEliminar.id}`, { method: 'DELETE' });
+      await fetch(`http://${IP_SERVIDOR}:3000/productos/${modalEliminar.id}`, { method: 'DELETE' });
       setProductos(productos.filter(p => p.id !== modalEliminar.id));
       setModalEliminar({ mostrar: false, id: null });
     } catch (error) { alert("❌ No se pudo eliminar"); }
@@ -185,7 +189,7 @@ export default function App() {
                     </span>
                   </div>
                   
-                  {/* --- NUEVO ELEMENTO: Imagen decorativa con el Emoji Dinámico --- */}
+                  {/* --- Imagen decorativa con el Emoji Dinámico --- */}
                   <div style={styles.avatarContainer}>
                     <span style={styles.avatarEmoji}>{obtenerEmoji(p.nombre)}</span>
                   </div>
@@ -310,7 +314,7 @@ const styles = {
   input: { flex: 1, minWidth: '180px', padding: '14px', borderRadius: '10px', border: '1px solid #1f293d', backgroundColor: '#1f293d', color: 'white', fontSize: '15px', outline: 'none' },
   buttonAdd: { backgroundColor: '#f6b93b', color: '#0b0f19', padding: '14px 28px', border: 'none', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer', fontSize: '15px' },
 
-  // --- NUEVOS ESTILOS: Contenedor del Emoji decorativo ---
+  // Contenedor del Emoji decorativo
   avatarContainer: { display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#1f293d', borderRadius: '12px', padding: '20px', margin: '5px 0' },
   avatarEmoji: { fontSize: '45px' },
 
