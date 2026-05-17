@@ -1,8 +1,8 @@
 # Fastech 🚀
 
-**Fastech** es una aplicación web full-stack desarrollada como proyecto técnico. La plataforma está diseñada para ofrecer una solución digital ágil, eficiente y segura para la gestión, control y automatización de procesos internos.
+**Fastech** es una aplicación web full-stack desarrollada como proyecto técnico. La plataforma está diseñada para ofrecer una solución digital ágil y eficiente para la gestión de registros y control de procesos.
 
-El proyecto implementa una arquitectura cliente-servidor robusta, asegurando una experiencia de usuario fluida mediante una interfaz responsiva y una gestión de datos relacional optimizada.
+El proyecto implementa una arquitectura cliente-servidor, asegurando la comunicación fluida entre la interfaz de usuario y la lógica del servidor, con un almacenamiento de datos relacional optimizado.
 
 ---
 
@@ -15,6 +15,7 @@ El proyecto implementa una arquitectura cliente-servidor robusta, asegurando una
 | ![Inicio](registrar_productos.png) | ![Panel](catalogo_productos.png) |
 | ![catalogo de productos](c1.png) | ![](c2.png) |
 | ![](c3.png) | ![Historial](history.png) |
+| ![](buscar.png) | ![](encontrados.png) |
 
 
 
@@ -22,22 +23,21 @@ El proyecto implementa una arquitectura cliente-servidor robusta, asegurando una
 
 ## 🛠️ Tecnologías Utilizadas
 
-El ecosistema tecnológico de **Fastech** fue seleccionado para garantizar escalabilidad, rendimiento y buenas prácticas de desarrollo:
+El ecosistema tecnológico de **Fastech** refleja las herramientas reales utilizadas en su desarrollo:
 
-*   **Backend:** Python 🐍 con **Flask** (Microframework para el manejo de rutas, lógica de negocio y APIs).
-*   **Base de Datos:** **MySQL** 🗄️ (Modelo relacional para la persistencia segura de datos e integridad referencial).
-*   **Entorno de Desarrollo:** **Linux (Ubuntu)** 🐧 utilizando entornos virtuales (`virtualenv`) para el aislamiento de dependencias.
-*   **Control de Versiones:** **Git & GitHub** 🐙 para el seguimiento del código y documentación.
-*   **Frontend:** HTML5, CSS3, JavaScript y Bootstrap.
+*   **Backend:** Python 🐍 con **Flask** (Microframework para el manejo de rutas y lógica de negocio).
+*   **Base de Datos:** **MySQL** 🗄️ (Modelo relacional para la persistencia e integridad de los datos).
+*   **Entorno de Desarrollo:** **Linux (Ubuntu)** 🐧 utilizando entornos virtuales para el aislamiento de dependencias de Python.
+*   **Control de Versiones:** **Git & GitHub** 🐙 para el seguimiento del código y documentación del repositorio.
+*   **Frontend:** HTML5 y CSS3 (para la estructura y diseño visual de las vistas).
 
 ---
 
 ## 🚀 Características Principales
 
-*   🔐 **Autenticación y Seguridad:** Sistema de inicio de sesión seguro para usuarios.
-*   📊 **Gestión de Datos (CRUD):** Control total (Crear, Leer, Actualizar, Eliminar) sobre los registros de la aplicación.
-*   ⚡ **Conexión Eficiente:** Integración optimizada entre Flask y la base de datos MySQL.
-*   🎨 **Diseño Adaptable:** Interfaz limpia y responsiva para una navegación cómoda en cualquier dispositivo.
+*   ⚡ **Conexión Eficiente:** Integración directa entre Flask y la base de datos MySQL para la consulta de información.
+*   📊 **Gestión de Registros:** Capacidad para manejar y mostrar datos almacenados dinámicamente.
+*   Routing Limpio:** Estructura de rutas bien definidas para la navegación del sistema.
 
 ---
 
