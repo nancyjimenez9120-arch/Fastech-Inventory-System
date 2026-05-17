@@ -8,7 +8,6 @@ El proyecto implementa una arquitectura cliente-servidor, asegurando la comunica
 
 ## 📸 Capturas de Pantalla
 
-> ¡Explora la interfaz de Fastech en acción! *(Recuerda añadir tus imágenes en una carpeta llamada `img` dentro del proyecto).*
 
 | Vista Principal / Login | Panel de Control (Dashboard) |
 | :---: | :---: |
