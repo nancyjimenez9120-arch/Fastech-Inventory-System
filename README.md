@@ -13,6 +13,10 @@ El proyecto implementa una arquitectura cliente-servidor robusta, asegurando una
 | Vista Principal / Login | Panel de Control (Dashboard) |
 | :---: | :---: |
 | ![Inicio](registrar_productos.png) | ![Panel](catalogo_productos.png) |
+| ![catalogo de productos](c1.png) | ![](c2.png) |
+| ![](c3.png) | ![Historial](history.png) |
+
+
 
 ---
 
